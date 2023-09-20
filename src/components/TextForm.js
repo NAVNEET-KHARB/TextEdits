@@ -32,6 +32,7 @@ export default function TextForm(props) {
     let text = document.getElementById("myBox");
     text.select();
     navigator.clipboard.writeText(text.value);
+    document.getSelection().removeAllRanges();
     props.showAlert("Copied to Clipboard!", "success");
   };
   const handleOnChange = (event) => {
@@ -75,7 +76,7 @@ export default function TextForm(props) {
   }
   return (
     <>
-      <div className={`container ${textcolor}`}>
+      <div className={`container ${textcolor} mb-4`}>
         <h1>{props.heading}</h1>
         <div className="mb-3">
           <textarea
@@ -90,38 +91,51 @@ export default function TextForm(props) {
             onChange={handleOnChange}
           ></textarea>
         </div>
-        <button className={`btn btn-${btnColor} ${btnoutline} mx-1`} onClick={handleUpClick}>
+        <button
+          disabled={text.length === 0}
+          className={`btn btn-${btnColor} ${btnoutline} mx-1 my-1`}
+          onClick={handleUpClick}
+        >
           Convert to Uppercase
         </button>
-        <button className={`btn btn-${btnColor} ${btnoutline} mx-1`} onClick={handleLowClick}>
+        <button
+          disabled={text.length === 0}
+          className={`btn btn-${btnColor} ${btnoutline} mx-1 my-1`}
+          onClick={handleLowClick}
+        >
           Convert to Lowercase
         </button>
         <button
-          className={`btn btn-${btnColor} ${btnoutline} mx-1`}
+          disabled={text.length === 0}
+          className={`btn btn-${btnColor} ${btnoutline} mx-1 my-1`}
           onClick={handleTitleClick}
         >
           Convert to Titlecase
         </button>
         <button
-          className={`btn btn-${btnColor} ${btnoutline} mx-1`}
+          disabled={text.length === 0}
+          className={`btn btn-${btnColor} ${btnoutline} mx-1 my-1`}
           onClick={handleClearClick}
         >
           Clear Text
         </button>
         <button
-          className={`btn btn-${btnColor} ${btnoutline} mx-1`}
+          disabled={text.length === 0}
+          className={`btn btn-${btnColor} ${btnoutline} mx-1 my-1`}
           onClick={handleCopyClick}
         >
           Copy Text
         </button>
         <button
-          className={`btn btn-${btnColor} ${btnoutline} mx-1`}
+          disabled={text.length === 0}
+          className={`btn btn-${btnColor} ${btnoutline} mx-1 my-1`}
           onClick={handleExtraSpaces}
         >
           Remove Extra Spaces
         </button>
         <button
-          className={`btn btn-${btnColor} ${btnoutline} mx-1`}
+          disabled={text.length === 0}
+          className={`btn btn-${btnColor} ${btnoutline} mx-1 my-1`}
           onClick={handleSpeakClick}
         >
           Read the text
@@ -130,16 +144,22 @@ export default function TextForm(props) {
       <div className={`container ${textcolor} my-3`}>
         <h2>YOUR TEXT SUMMARY</h2>
         <p>
-          {text.length > 0 ? text.split(" ").length : 0} words and {text.length}{" "}
-          characters
+          {
+            text.split(" ").filter((element) => {
+              return element.length !== 0;
+            }).length
+          }{" "}
+          words and {text.length} characters
         </p>
-        <p>{0.008 * text.split("").length} Minutes read</p>
-        <h2>TEXT PREVIEW</h2>
         <p>
-          {text.length > 0
-            ? text
-            : "Enter some text in the textbox above to preview it here."}
+          {0.008 *
+            text.split(" ").filter((element) => {
+              return element.length !== 0;
+            }).length}{" "}
+          Minutes read
         </p>
+        <h2>TEXT PREVIEW</h2>
+        <p>{text.length > 0 ? text : "Nothing to preview here."}</p>
       </div>
     </>
   );

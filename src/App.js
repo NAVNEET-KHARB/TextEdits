@@ -25,21 +25,21 @@ function App() {
   };
   const toggleSiteColorr = () => {
     setSiteColor("red");
-    document.body.style.backgroundColor = "#FC2947";
+    document.body.style.backgroundColor = "#F2F2F2";
     if (mode === "dark") {
       document.body.style.backgroundColor = "#571010";
     }
   };
   const toggleSiteColorb = () => {
     setSiteColor("blue");
-    document.body.style.backgroundColor = "#4ae2ed";
+    document.body.style.backgroundColor = "#F2F2F2";
     if (mode === "dark") {
       document.body.style.backgroundColor = "#161b4a";
     }
   };
   const toggleSiteColorg = () => {
     setSiteColor("green");
-    document.body.style.backgroundColor = "#A6FF00";
+    document.body.style.backgroundColor = "#F2F2F2";
     if (mode === "dark") {
       document.body.style.backgroundColor = "#144d29";
     }
@@ -88,7 +88,7 @@ function App() {
        <div className="container my-3">
        <TextForm
               showAlert={valueOfAlert}
-              heading="Enter the text to analyze below"
+              heading="Try TextEdits - Word & Character Counter, Case Changer, Remove Extra Spaces"
               mode={mode}
               sitecolor={sitecolor}
             />

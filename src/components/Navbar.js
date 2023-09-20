@@ -71,67 +71,70 @@ export default function Navbar(props) {
                 </a>
               </li>
             </ul>
-            <div className="d-flex">
-              <div className="form-check">
-                <input
-                  className="form-check-input mx-1"
-                  type="radio"
-                  name="flexRadioDefault"
-                  id="flexRadioDefault1"
-                  onClick={props.toggleSiteColorw}
-                />
-                <label
-                  className={`form-check-label ${textcolor}`}
-                  htmlFor="flexRadioDefault1"
-                >
-                  White
-                </label>
-              </div>
-              <div className="form-check">
-                <input
-                  className="form-check-input mx-1"
-                  type="radio"
-                  name="flexRadioDefault"
-                  id="flexRadioDefault2"
-                  onClick={props.toggleSiteColorr}
-                />
-                <label
-                  className={`form-check-label ${textcolor}`}
-                  htmlFor="flexRadioDefault2"
-                >
-                  Red
-                </label>
-              </div>
-              <div className="form-check">
-                <input
-                  className="form-check-input mx-1"
-                  type="radio"
-                  name="flexRadioDefault"
-                  id="flexRadioDefault3"
-                  onClick={props.toggleSiteColorb}
-                />
-                <label
-                  className={`form-check-label ${textcolor}`}
-                  htmlFor="flexRadioDefault3"
-                >
-                  Blue
-                </label>
-              </div>
-              <div className="form-check">
-                <input
-                  className="form-check-input mx-1"
-                  type="radio"
-                  name="flexRadioDefault"
-                  id="flexRadioDefault4"
-                  onClick={props.toggleSiteColorg}
-                />
-                <label
-                  className={`form-check-label ${textcolor}`}
-                  htmlFor="flexRadioDefault4"
-                >
-                  Green
-                </label>
-              </div>
+            <div
+              className="btn-group"
+              role="group"
+              aria-label="Basic radio toggle button group"
+            >
+              <input
+                type="radio"
+                className="btn-check"
+                name="btnradio"
+                id="btnradio1"
+                autocomplete="off"
+                onClick={props.toggleSiteColorw}
+              />
+              <label
+                className={`btn btn-outline-primary ${textcolor}`}
+                htmlFor="btnradio1"
+              >
+                White
+              </label>
+
+              <input
+                type="radio"
+                className="btn-check"
+                name="btnradio"
+                id="btnradio2"
+                autocomplete="off"
+                onClick={props.toggleSiteColorr}
+              />
+              <label
+                className={`btn btn-outline-primary ${textcolor}`}
+                htmlFor="btnradio2"
+              >
+                Red
+              </label>
+
+              <input
+                type="radio"
+                className="btn-check"
+                name="btnradio"
+                id="btnradio3"
+                autocomplete="off"
+                onClick={props.toggleSiteColorb}
+              />
+              <label
+                className={`btn btn-outline-primary ${textcolor}`}
+                htmlFor="btnradio3"
+              >
+                Blue
+              </label>
+
+              <input
+                type="radio"
+                className="btn-check"
+                name="btnradio"
+                id="btnradio4"
+                autocomplete="off"
+                onClick={props.toggleSiteColorg}
+              />
+              <label
+                className={`btn btn-outline-primary ${textcolor}`}
+                htmlFor="btnradio4"
+              >
+                Green
+              </label>
             </div>
             <div className="form-check form-switch">
               <input
@@ -143,7 +146,7 @@ export default function Navbar(props) {
               />
               <label
                 className={`form-check-label ${textcolor}`}
-                htmlFor="flexSwitchCheckDefault"
+                htmlhtmlFor="flexSwitchCheckDefault"
               >
                 Enable {radTxt} MODE
               </label>
